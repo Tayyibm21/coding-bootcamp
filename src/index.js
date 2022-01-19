@@ -5,6 +5,7 @@ const path = require("path");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager").default;
+const ScreenManager = require("inquirer/lib/utils/screen-manager");
 
 //  Starter questions
 const teamRole = [
@@ -114,7 +115,7 @@ const start = async () => {
       const { name, id, email, officeNumber } = await inquirer.prompt(
         managerQuestions
       );
-      const employee = new Manager(name, id, email, officeNumber);
+      const employee = new ScreenManager(name, id, email, officeNumber);
       employeeArray.push(employee);
     } else if (role === "Engineer") {
       const { name, id, email, github } = await inquirer.prompt(
